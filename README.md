@@ -1,8 +1,8 @@
 # War3Trainer(WarCraft III Trainer)
 
-这是我原先~~[blog](http://tctianchi.duapp.com/)文章中关于[魔兽3内存修改器](http://tctianchi.duapp.com/archives/tag/%E9%AD%94%E5%85%BD3)~~对应的代码，如今这个blog已经下线所以我也没有兴趣再继续更新。
+**终止更新**
 
-十多年前我还在上学的时候写了这个修改器，看得出来水平也一般，但感谢十年来网友们的支持。
+这是我原先blog文章（[魔兽3内存修改器](http://tctianchi.duapp.com/archives/tag/%E9%AD%94%E5%85%BD3)对应的代码。如今这个blog已经下线，彻底断绝了我更新的动力。十多年前我上学期间因不满当时的工具而写了这款修改器，但自己早就不玩魔兽所以一直对更新之事兴味索然。虽感谢十年来网友们的精神支持，只得跟进一下聊表寸心。然则暴雪的耐心还是超人意料，真是令人敬佩。
 
 ![Screenshot](https://raw.githubusercontent.com/tctianchi/War3Trainer/master/Screenshot.png)
 
