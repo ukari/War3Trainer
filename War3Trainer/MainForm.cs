@@ -27,16 +27,20 @@ namespace War3Trainer
                 return;
             }
 
-            FindGame();
+            AccessGame(FindGame());
         }
 
-        /************************************************************************/
-        /* Main functions                                                       */
-        /************************************************************************/
-        private void FindGame()
+        private Func<GameContext> SelectGame(int pid)
         {
-            bool isRecognized = false;
-            try
+            return () =>
+            {
+                return GameContext.SelectGameRunning(pid, "game.dll");
+            };
+        }
+
+        private Func<GameContext> FindGame()
+        {
+            return () =>
             {
                 _currentGameContext = GameContext.FindGameRunning("war3", "game.dll");
                 if (_currentGameContext == null)
@@ -44,6 +48,19 @@ namespace War3Trainer
                     // netease war3 platform(dz.163.com)
                     _currentGameContext = GameContext.FindGameRunning("dzwar3", "game.dll");
                 }
+                return _currentGameContext;
+            };
+        }
+
+        /************************************************************************/
+        /* Main functions                                                       */
+        /************************************************************************/
+        private void AccessGame(Func<GameContext> gameClosure)
+        {
+            bool isRecognized = false;
+            try
+            {
+                _currentGameContext = gameClosure();
                 if (_currentGameContext != null)
                 {
                     // Game online
@@ -304,6 +321,13 @@ namespace War3Trainer
                 + "（支持）";
         }
 
+        private void ReportPidInputFailure(string pidRaw)
+        {
+            labGameScanState.Text = "输入的pid不合法: \""
+                + pidRaw
+                + "\"，请输入数字作为pid";
+        }
+
         /************************************************************************/
         /* GUI                                                                  */
         /************************************************************************/
@@ -339,7 +363,24 @@ namespace War3Trainer
 
         private void cmdScanGame_Click(object sender, EventArgs e)
         {
-            FindGame();
+            AccessGame(FindGame());
+        }
+
+        private void scanGameWithPid_Click(object sender, EventArgs e)
+        {
+            string pidRaw = Microsoft.VisualBasic.Interaction.InputBox(
+                "由此输入war3游戏的进程号(process id)",
+                "指定pid",
+                "0", -1, -1);
+            try
+            {
+                int pid = Int32.Parse(pidRaw);
+                AccessGame(SelectGame(pid));
+            }
+            catch (FormatException)
+            {
+                ReportPidInputFailure(pidRaw);
+            }
         }
 
         private void cmdModify_Click(object sender, EventArgs e)

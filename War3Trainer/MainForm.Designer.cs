@@ -33,7 +33,9 @@
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.labGameScanState = new System.Windows.Forms.ToolStripLabel();
             this.cmdScanGame = new System.Windows.Forms.ToolStripButton();
+            this.scanGameWithPid = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDebug1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,6 +89,8 @@
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labGameScanState,
             this.cmdScanGame,
+            this.toolStripSeparator2,
+            this.scanGameWithPid,
             this.toolStripSeparator1});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
@@ -111,12 +115,27 @@
             this.cmdScanGame.Size = new System.Drawing.Size(60, 21);
             this.cmdScanGame.Text = "查找游戏";
             this.cmdScanGame.Click += new System.EventHandler(this.cmdScanGame_Click);
+            //
+            // scanGameWithPid
+            //
+            this.scanGameWithPid.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.scanGameWithPid.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.scanGameWithPid.Name = "scanGameWithPid";
+            this.scanGameWithPid.Size = new System.Drawing.Size(60, 21);
+            this.scanGameWithPid.Text = "指定pid";
+            this.scanGameWithPid.Click += new System.EventHandler(this.scanGameWithPid_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 24);
             // 
             // menuMain
             // 
@@ -351,7 +370,9 @@
         private System.Windows.Forms.Button cmdModify;
         private ListViewEx viewData;
         private System.Windows.Forms.ToolStripButton cmdScanGame;
+        private System.Windows.Forms.ToolStripButton scanGameWithPid;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colOriginalValue;
         private System.Windows.Forms.ColumnHeader colUnsavedValue;

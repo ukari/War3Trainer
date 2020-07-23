@@ -32,6 +32,16 @@ namespace War3Trainer
             return null;
         }
 
+        public static GameContext SelectGameRunning(int processId, string moduleName)
+        {
+            Process process = Process.GetProcessById(processId);
+            if (process != null)
+            {
+                return new GameContext(process, moduleName);
+            }
+            return null;
+        }
+
         public GameContext(Process gameProcess, string moduleName)
         {
             // Get PID
