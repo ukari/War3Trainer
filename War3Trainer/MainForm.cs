@@ -368,10 +368,7 @@ namespace War3Trainer
 
         private void scanGameWithPid_Click(object sender, EventArgs e)
         {
-            string pidRaw = Microsoft.VisualBasic.Interaction.InputBox(
-                "由此输入war3游戏的进程号(process id)",
-                "指定pid",
-                "0", -1, -1);
+            string pidRaw = InputBox.Show("指定pid", "由此输入war3游戏的进程号(process id)");
             try
             {
                 int pid = Int32.Parse(pidRaw);
@@ -596,10 +593,7 @@ namespace War3Trainer
         /************************************************************************/
         private void menuDebug1_Click(object sender, EventArgs e)
         {
-            string strIndex = Microsoft.VisualBasic.Interaction.InputBox(
-                "nIndex = 0x?",
-                "War3Common.ReadFromGameMemory(nIndex)",
-                "0", -1, -1);
+            string strIndex = InputBox.Show("nIndex = 0x?", "War3Common.ReadFromGameMemory(nIndex)");
             if (String.IsNullOrEmpty(strIndex))
                 return;
 
